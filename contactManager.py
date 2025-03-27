@@ -1,8 +1,9 @@
 # Global dictionary to store contacts
 
-contacts_emails = {}
-contacts_phone = {}
-contacts_list = [contacts_emails, contacts_phone]
+contacts_emails = []
+contacts_phone = []
+contacts_name = []
+contacts_list = {}
 
 def main():
 
@@ -12,38 +13,49 @@ def main():
 
         if choice == 1: # Outside adding things to the dictionary, it actually works
             
-            profile = input("Please add the users contact name (or type done to be finished): ").strip()
-            # Do the append tommorrow, do not focus on it now. 
-            if profile == 'done'.lower():
-                break
-            numbers = input("Please add the users contact number (Please include dashes.): ").strip()
+            contacts_name[name] = input("Please add the users contact name (or type done to be finished): ").strip() #Invalid syntax and I do not understand why
+
+            if contacts_name[name] == 'done'.lower():
+                return
+
+            contacts_phone = input("Please add the users contact number (Please include dashes.): ").strip()
             
-            email = input("Please add the users contact email: ").strip()
+            contacts_emails = input("Please add the users contact email: ").strip()
  
             print("Contact added successfully!")
-
-            profile = [contacts_list,contacts_emails, contacts_phone,].append
-
-        if choice == 2: # <- Makes a infinite loop, try to fix the append 
-            print("---All Contacts---") 
-            print(f"Contact Name:" ,[contacts_list] )
-            print(f"Contacts Email:" ,[contacts_emails])
-            print(f"Contacts Number: " ,[contacts_phone])
-            print("-------------------")
+            
+            profile = [contacts_name, contacts_emails, contacts_list].append 
+        # I love when literally nothing works and I can't figure out why
+        if choice == 2:  
+            print("=-=-All Contacts-=-=") 
+            print(f"Contact Name, Email and Number:", )
+            print("-=-=-=-=-=-=-=-=-=-")
+            return
 
         if choice == 3: # Still needs to be worked on 
-            print("---Search For a Contact---")
+            print("-=-Search For a Contact-=-")
             input("Please type the name you are searching for: ")
-            # if profile not in contacts_list:
-            #     print("This user is not in your contacts") 
+            if contacts_name[name] is not contacts_list{}:
+                print("I'm sorry, the user you're looking for is not here.")
+            else:
+                print("This user is in your contacts.")
             
 
         if choice == 4: 
-            print("----Remove A Contact----")
+            print("-=-=Remove A Contact=-=-")
             print([contacts_list])
-            input("Would you like to remove a contact? Type Y for yes and N for no: ") 
+            input("Type the name of the contact you'd like to remove:", {contacts_name})
+            if contacts_name[name] is not contacts_list[]:
+                print("I'm sorry, the user you're looking for is not here.")
+            else:
+                contacts_list[contacts_name].pop
+            # if input == 'y':
+
         if choice == 5:
-            print("----Update A Contact----")
+            print("-=-=Update A Contact=-=-")
+            print(contacts_name)
+            print("Which contact would you like to update?: ") 
+            
         
         if choice == 6:  
             print("Thank you for using this program, have a swell day!") 
@@ -51,16 +63,16 @@ def main():
 
 
 def display_contacts_list():
-    print(" ----------------- ")
+    print(" -=-=-=-=-=-=-=-=- ")
     print("| Contact Manager |")
-    print(" ----------------- ")
+    print(" -=-=-=-=-=-=-=-=- ")
     print("1. Add contact")
     print("2. View all contacts")
     print("3. Search for a contact")
     print("4. Remove a contact")
     print("5. Update a contact")
     print("6. Quit") 
-    print("------------------")
+    print("-=-=-=-=-=-=-=-=-=-")
 
 # Main function to run the menu-driven system
 
